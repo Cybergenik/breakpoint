@@ -1,26 +1,27 @@
-import gdb
 import argparse
 from typing import Sequence
 from pointbreak.utils.gdb_utils import *
 from pointbreak.utils.malloc import *
 from mut_engine import get_fuzz_email
+import gdb
 
 
 def fuzz(filename:str, func:str, args:str = None) -> int:
-    gdb.execute('file {filename}')
-    # set shapshot breakpoint
+    gdb.execute(f'file {filename}')
+    # set snapshot breakpoint
     gdb.execute(f'break {func}')
     gdb.execute(f'r  {"".join(args)}')
 
     i = 1
     while True:
-        print(f'Fuzz iter: {i}')
+        print(f'Fuzz {i}:')
         i +=1
         # snapshot the system
         gdb.execute('checkpoint')
         fuzz_string = get_fuzz_email() + '\0'
         if len(fuzz_string) > 65000:
             break
+        # generate fuzz string
         fuzz_string_addr = malloc( len(fuzz_string) + 10 )
 
         # set the register that holds the first argument (amd64 arch) to the address of fuzz_string
@@ -45,7 +46,6 @@ def fuzz(filename:str, func:str, args:str = None) -> int:
             # restore snapshot
             gdb.execute("restart 1")
             gdb.execute("delete checkpoint 0")
-    # script ends
     print('No crashes detected...')
     gdb.execute('quit')
     return 0
@@ -56,7 +56,7 @@ def main(argv: Sequence[str] = None) -> int:
     parser.add_argument('-p', '--point', metavar='', help='')
     parser.add_argument('-a', '--args', metavar='', help='')
     args = parser.parse_args(argv)
-    return fuzz("test/getdomain", "parser", "test@email.com")
+    return fuzz("tests/getdomain", "parse", "test@email.com")
 
 if __name__ == "__main__":
     raise SystemExit(main())
