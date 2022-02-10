@@ -2,6 +2,9 @@
     Utils for GDB fuzzing, originally from:
     https://github.com/crossbowerbt/GDB-Python-Utils
 
+
+    Ported to Python3.9 by Luciano Remes
+
 """
 
 import subprocess
@@ -9,13 +12,6 @@ import re
 import sys
 import os
 import gdb
-
-##
-# @package gdb_utils
-# Various utility functions to work with GDB.
-#
-# This package provides functions not included in the default gdb module.
-#
 
 ##
 # Read an ASCII string from memory
