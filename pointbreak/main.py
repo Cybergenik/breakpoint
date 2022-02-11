@@ -24,11 +24,11 @@ def fuzz_wasm(filename:str, func:str, corpus: list, args:str = None) -> int:
             gdb.execute('checkpoint')
             curr_string = next(fuzz_strings)
             # set the register that holds the first argument (amd64 arch) to the address of fuzz_string
-            gdb.execute(f'set $rdi="{curr_string}"')
+            gdb.execute(f'set ="{curr_string}"')
 
             # write fuzz_string to that address
-            #inferior = gdb.inferiors()[0]
-            #inferior.write_memory(fuzz_string_addr, fuzz_string, len(fuzz_string))
+            inferior = gdb.inferiors()[0]
+            inferior.write_memory(fuzz_string_addr, fuzz_string, len(fuzz_string))
 
             print(f'Str len: {len(curr_string)}')
             gdb.execute("x/s $rdi")
@@ -78,6 +78,8 @@ def fuzz_86(filename:str, func:str, corpus: list,  mut_eng: FunctionType, args:s
             gdb.execute('finish')
             # check if the program has crashed
             if execute_output('info checkpoints')[0] == 'No checkpoints.':
+                gdb.execute("info frame")
+                gdb.execute(f'gcore {filename}_SIGEGV.core')
                 print('#')
                 print('# The program has crashed! Stack exhaustion or bug???')
                 print('#')
@@ -109,6 +111,8 @@ def fuzz_86(filename:str, func:str, corpus: list,  mut_eng: FunctionType, args:s
         gdb.execute('finish')
         # check if the program has crashed
         if execute_output('info checkpoints')[0] == 'No checkpoints.':
+            gdb.execute("info frame")
+            gdb.execute(f'gcore {filename}_SIGEGV.core')
             print('#')
             print('# Program has crashed, Stack exhaustion or bug?')
             print('#')
