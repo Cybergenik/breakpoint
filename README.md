@@ -1,2 +1,2 @@
 # breakpoint
-Web Assembly Fuzzing Tool
+GDB based fuzzing tool
