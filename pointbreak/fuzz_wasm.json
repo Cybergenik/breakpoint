@@ -1,0 +1,14 @@
+{
+    "mode": "wasm",
+    "target": "tests/rust/getdomain",
+    "func": "parse",
+    "args": "test@hello.com",
+    "corpus": [
+        "test@hello.com",
+        "hello@domain.com",
+        "test@domain.com",
+        "nothing.com",
+        "test@",
+        "HelT2@"
+    ]
+}

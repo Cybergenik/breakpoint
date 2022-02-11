@@ -1,5 +1,6 @@
 {
     "mode": "x86",
+    "entropy": "high",
     "target": "tests/c/getdomain",
     "func": "parse",
     "args": "test@hello.com",

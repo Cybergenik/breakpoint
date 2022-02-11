@@ -1,4 +1,10 @@
-fn from(buffer: Buffer) -> Vec<u8> {
+fn main(){
+    let buf = Buffer::allocate(10);
+    uaf(buf);
+    buf
+}
+
+fn uaf(buffer: Buffer) -> Vec<u8> {
     let mut slice = Buffer::allocate(buffer.len);
     let len = buffer.copy_to(&mut slice);
     unsafe {
