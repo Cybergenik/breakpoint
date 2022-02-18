@@ -1,4 +1,4 @@
 #!/bin/bash
 
-export PYTHONPATH=$PYTHONPATH:./pointbreak \
-&& gdb -q -x pointbreak/main.py
+export PYTHONPATH=$PYTHONPATH:.:./pointbreak \
+&& gdb -fullname -quiet -x pointbreak/main.py
