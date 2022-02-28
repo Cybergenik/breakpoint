@@ -1,0 +1,24 @@
+Mutation Iteration: 1031
+Original Input: HelT2@
+Input Permutation: test@hello.comSDHlWuJrKUuawMqtYGJSpveJwajktCnrbUfRrwTrQVoygkkkYEYWUFMFGDkYDxuPbbSmSbgrgXcvtgrVBzjPHWCwfPiueJSvrhKBwwfvVCoaKYBPniNwdVKNfPrKwuBSFVBKJOcMkQuVRFkNfATzPfGdhVrUMRlbAoeEQqdCQizJtIvqSVKbrEOHsMDtwBjGadFVrIBpeiHbBBJfbVKircSgyQJaOwQlMpuvEMPZhVEyQuqFEremIGnXupEuwDpzGTyrIRiVpJdXYmOKNYimwzOCSZkHZiExmPnofaUWeZsYnmyoYuKzvarHEPyqOxHRYTeQAJbVkQfmgKCeQNyaXvaAiDkpWguGKXcZLxWfPzHxrUiphQaknIJOXxJhOHYyxpcVRmxTzPKozhebQKWkVaXrnlXosvfcmLjwNpWavbwgELExciBTTgZYysbkQEhJcbmWzUpjWICXgrpqmgtaSpjQMgFpnwlVVtoaioRYRyguHhacLfGDHMZzVFSgTgnxGNgljgPaZDExsZzbxqpukhNxjEkftuGsnyAslOcHUGDsZzbzhJsEFnNxKpucWFBMMldkrqkVHLKOBNhlkYnVWzxBPCxuOqzwddCSRXFBXTuXdfDqvCZVZnTblFoisKtTGUsEdZCBIHpNCnWMEoEXOjdxVAOCOMfNVaTcINzFxWSViraQigRQCYovexiUTGtuDJFJPuWrffzXbvyKebnuZKDlbWkcfkXEcHtKZpcQFOtJUKZZcldroJsUcQtdummdkvdgeqaAoswNUNdPWZJSxYPUYuigOcIhpFrqHjzbyFjWGitAAFdvEAYctsxxyzCPjuUgtASpFXDCrDhByZOvZKbpODJiSkyirKiKXcDyfWroEaIZuKHQYfhxsgEpnGtDHZpqItkIZJurTJhhetOvpLwKtZNNwtnNtbGvMfGwUCeVRJrHfTGCqjXUvLYPfuETffuPvtklAoFRhlxaJStxitPEWzNdTYHpqqQBEeFEzwkHabkElxADpDUmBwAAkixYwGOFRug0
+Frame:
+--------------------------------
+Stack level 0, frame at 0x7fffffffe040:
+ rip = 0x5555555551a0 in parse; saved rip = 0x555555555271
+ called by frame at 0x7fffffffe060
+ Arglist at 0x7fffffffe030, args: 
+ Locals at 0x7fffffffe030, Previous frame's sp is 0x7fffffffe040
+ Saved registers:
+  rbp at 0x7fffffffe030, rip at 0x7fffffffe038
+--------------------------------
+Locals:
+--------------------------------
+No symbol table info available.
+--------------------------------
+Backtrace:
+--------------------------------
+#0  0x00005555555551a0 in parse ()
+No symbol table info available.
+#1  0x0000555555555271 in main ()
+No symbol table info available.
+--------------------------------

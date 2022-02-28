@@ -1,15 +1,27 @@
 {
     "mode": "x86",
     "entropy": "moderate",
-    "target": "tests/c/getdomain",
-    "func": "parse",
-    "args": ["test@hello.com"],
-    "corpus": [
-        "test@hello.com",
-        "hello@domain.com",
-        "test@domain.com",
-        "nothing.com",
-        "test@",
-        "HelT2@"
-    ]
+    "file": "tests/c/getdomain",
+	"args": ["test@hello.com", "9"],
+    "targets":[
+		{	"func": "parse",
+			"corpus": [
+				"test@hello.com",
+				"hello@domain.com",
+				"test@domain.com",
+				"nothing.com",
+				"test@",
+				"HelT2@"
+			]
+		},
+		{	"func": "unsafe_assign",
+			"corpus": [
+				100,
+				200,
+				0,
+				-9
+			]
+
+		}
+	]
 }

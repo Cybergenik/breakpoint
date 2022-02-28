@@ -21,10 +21,17 @@ def permuted_string(s: str) -> str:
 
 def high_entropy_permuted_string(s: str) -> str:
     curr_str = s
-    yield curr_str
+    yield curr_str + "0"
     while True:
         curr_str += random.choice(string.ascii_letters)
         curr_str += random.choice(string.ascii_letters)
         curr_str += random.choice(string.ascii_letters)
         curr_str = "".join(random.sample(curr_str, len(curr_str)))
-        yield curr_str
+        yield curr_str + "0"
+
+def permuted_num(i: int) -> int:
+    curr = i
+    yield curr
+    while True:
+        curr >>= 1
+        yield curr
